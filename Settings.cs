@@ -17,11 +17,13 @@ namespace SnakeGame
     public static int Points { get; set; }
     public static bool GameOver { get; set; }
     public static Directions Direction { get; set; }
+    public static string Nickname { get; set; }
 
-    public Settings() {
+
+
+        public Settings() {
             Width = 20 ;
             Height = 20;
-            Speed = 8;
             Points = 0;
             GameOver = false;
             Direction= Directions.Down;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,7 @@ namespace SnakeGame
         {
             InitializeComponent();
             new Settings();
+            DisplayTopScore();
             gameTimer.Interval = 1000 / Settings.Speed; //TO DO (change speed lvl)
             gameTimer.Tick += UpdateScreen;
             gameTimer.Start();
@@ -35,10 +37,8 @@ namespace SnakeGame
 
         private void StartGame()
         {
-           endText.Visible = false;
-            Settings.GameOver = false;
            GenerateSnake();
-            GenerateFood();
+           GenerateFood();
 
         }
 
@@ -61,19 +61,7 @@ namespace SnakeGame
 
         private void UpdateScreen(object sender, EventArgs e)
         {
-            if (Settings.GameOver == true)
-            {
-                if (Input.KeyPress(Keys.Enter))
-                {
-                    StartGame();
-                }
-                else if (Input.KeyPress(Keys.Escape))
-                {
-                    System.Windows.Forms.Application.Exit();
-                }
-            }
-
-            else
+            if (Settings.GameOver == false)
             {
                 if (Input.KeyPress(Keys.Right) && Settings.Direction != Directions.Left)
                 {
@@ -202,6 +190,8 @@ namespace SnakeGame
                     string gameOver = "Game Over\n" + "Final Score: " + Settings.Points;
                     endText.Text = gameOver;
                     endText.Visible = true;
+                    playAgainButton.Visible = true;
+                    exitButton.Visible = true;
                 }
             }
         }
@@ -256,5 +246,27 @@ namespace SnakeGame
 
             }
         }
+
+        public static void DisplayTopScore()
+        {
+
+        }
+
+        private void playAgainButton_Click(object sender, EventArgs e)
+        {
+            playAgainButton.Visible = false;
+            exitButton.Visible = false;
+            endText.Visible = false;
+            Settings.GameOver = false;
+
+            StartGame();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
+
+   
 }
