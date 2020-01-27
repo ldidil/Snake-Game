@@ -13,6 +13,8 @@ namespace Snake
 {
     public partial class Form2 : Form
     {
+        public static string nickname;
+        public static int speed;
         public Form2()
         {
             InitializeComponent();
@@ -22,21 +24,23 @@ namespace Snake
         private void button1_Click(object sender, EventArgs e)
         {
             if (hardButton.Checked) {
-                Settings.Speed = 20;
+                    speed = 20;
             }
             else if (mediumButton.Checked)
             {
-                Settings.Speed = 15;
+                    speed = 15;
               
             }
             else if(easyButton.Checked){
-                Settings.Speed = 8;
+                speed = 8;
             }
 
             if (nicknamebox.TextLength > 0) {
-                Settings.Nickname = nicknamebox.Text;
+                nickname = nicknamebox.Text;
                 var f1 = new Form1();
+                
                 f1.ShowDialog();
+                Close();
             }
             else {
                 MessageBox.Show("Check your Nickname", "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);

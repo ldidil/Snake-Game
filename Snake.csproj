@@ -67,7 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Scoreboard.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="topScore.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Img\favicon.ico" />
+    <Content Include="topScores.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

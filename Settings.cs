@@ -27,7 +27,20 @@ namespace SnakeGame
             Points = 0;
             GameOver = false;
             Direction= Directions.Down;
+            Nickname = "";
+            Speed = 10;
           }
+
+        public Settings(string nickname, int speed)
+        {
+            Nickname = nickname;
+            Speed = speed;
+            Width = 20;
+            Height = 20;
+            Points = 0;
+            GameOver = false;
+            Direction = Directions.Down;
+        }
 
     }
 }

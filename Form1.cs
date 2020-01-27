@@ -20,26 +20,21 @@ namespace SnakeGame
         public Form1()
         {
             InitializeComponent();
-            new Settings();
+            new Settings(Form2.nickname,Form2.speed);
             DisplayTopScore();
             gameTimer.Interval = 1000 / Settings.Speed; //TO DO (change speed lvl)
             gameTimer.Tick += UpdateScreen;
-            gameTimer.Start();
+            gameTimer.Start(); 
 
-            Game();
-
-        }
-
-        private void Game()
-        {
             StartGame();
+
         }
 
         private void StartGame()
         {
+
            GenerateSnake();
            GenerateFood();
-
         }
 
         private void GenerateSnake()
@@ -175,6 +170,7 @@ namespace SnakeGame
 
         private void Die()
         {
+            topScore.Write();
             Settings.GameOver = true;
         }
 
@@ -223,9 +219,6 @@ namespace SnakeGame
             var appleImage = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + @"..\..\Img\apple.png");
             e.Graphics.DrawImage(appleImage, p2);
 
-
-
-            
         }
 
         private static void Rotate(Bitmap img)
@@ -247,25 +240,35 @@ namespace SnakeGame
             }
         }
 
-        public static void DisplayTopScore()
+        public void DisplayTopScore()
         {
-
+            topScore top = new topScore();
+            int i = 1;
+            string text ="";
+            foreach (Score score in topScore.listScore) {
+                text += score.points + "    " + score.nickname + "\n";
+               
+                i++;
+            }
+            topScoreListTxT.Text = text;
         }
 
         private void playAgainButton_Click(object sender, EventArgs e)
         {
+            endText.Visible = false;
             playAgainButton.Visible = false;
             exitButton.Visible = false;
-            endText.Visible = false;
-            Settings.GameOver = false;
+            new Settings(Form2.nickname, Form2.speed);
 
             StartGame();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            topScore.Save();
             System.Windows.Forms.Application.Exit();
         }
+
     }
 
    

@@ -38,9 +38,9 @@ namespace SnakeGame
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.boardCanvas = new System.Windows.Forms.PictureBox();
             this.topScoreTitleTxt = new System.Windows.Forms.Label();
-            this.topScoreListTxt = new System.Windows.Forms.Label();
             this.playAgainButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.topScoreListTxT = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.boardCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@ namespace SnakeGame
             // 
             this.ScoreText.AutoSize = true;
             this.ScoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ScoreText.Location = new System.Drawing.Point(864, 50);
+            this.ScoreText.Location = new System.Drawing.Point(901, 50);
             this.ScoreText.Name = "ScoreText";
             this.ScoreText.Size = new System.Drawing.Size(130, 44);
             this.ScoreText.TabIndex = 2;
@@ -99,21 +99,11 @@ namespace SnakeGame
             // 
             this.topScoreTitleTxt.AutoSize = true;
             this.topScoreTitleTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.topScoreTitleTxt.Location = new System.Drawing.Point(1001, 198);
+            this.topScoreTitleTxt.Location = new System.Drawing.Point(973, 192);
             this.topScoreTitleTxt.Name = "topScoreTitleTxt";
-            this.topScoreTitleTxt.Size = new System.Drawing.Size(195, 44);
+            this.topScoreTitleTxt.Size = new System.Drawing.Size(255, 44);
             this.topScoreTitleTxt.TabIndex = 4;
-            this.topScoreTitleTxt.Text = "TopScore:";
-            // 
-            // topScoreListTxt
-            // 
-            this.topScoreListTxt.AutoSize = true;
-            this.topScoreListTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.topScoreListTxt.Location = new System.Drawing.Point(977, 260);
-            this.topScoreListTxt.Name = "topScoreListTxt";
-            this.topScoreListTxt.Size = new System.Drawing.Size(244, 44);
-            this.topScoreListTxt.TabIndex = 5;
-            this.topScoreListTxt.Text = "TopScoreList";
+            this.topScoreTitleTxt.Text = "Top 5 Scores:";
             // 
             // playAgainButton
             // 
@@ -139,15 +129,25 @@ namespace SnakeGame
             this.exitButton.Visible = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // topScoreListTxT
+            // 
+            this.topScoreListTxT.AutoSize = true;
+            this.topScoreListTxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.topScoreListTxT.Location = new System.Drawing.Point(1001, 266);
+            this.topScoreListTxT.Name = "topScoreListTxT";
+            this.topScoreListTxT.Size = new System.Drawing.Size(195, 44);
+            this.topScoreListTxT.TabIndex = 8;
+            this.topScoreListTxT.Text = "TopScore:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1345, 846);
             this.ControlBox = false;
+            this.Controls.Add(this.topScoreListTxT);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playAgainButton);
-            this.Controls.Add(this.topScoreListTxt);
             this.Controls.Add(this.topScoreTitleTxt);
             this.Controls.Add(this.scorePoint);
             this.Controls.Add(this.ScoreText);
@@ -175,9 +175,9 @@ namespace SnakeGame
         private System.Windows.Forms.Label scorePoint;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label topScoreTitleTxt;
-        private System.Windows.Forms.Label topScoreListTxt;
         private System.Windows.Forms.Button playAgainButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Label topScoreListTxT;
     }
 }
 
