@@ -32,7 +32,7 @@ namespace SnakeGame
 
         private void StartGame()
         {
-
+           Focus();
            GenerateSnake();
            GenerateFood();
         }
