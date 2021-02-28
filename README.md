@@ -1,4 +1,6 @@
 # SnakeGame
+![SnakeGame](./Img/title.png)
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
